@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+
+{% block title %}User List{% endblock %}
+
+{% block content %}
+<h2>Gym Users</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Goal</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td><a href = "{% url 'user_detail' user.pk %}">{{ user.username }}</a></td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.gender }}</td>
+            <td>{{ user.goal }}</td>
+            <td>
+                <a href="{% url 'user_update' user.id %}">Edit</a> | 
+                <a href="{% url 'user_delete' user.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'user_create' %}">Add New User</a>
+{% endblock %}

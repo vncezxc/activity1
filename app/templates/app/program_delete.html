@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Program Delete{% endblock %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
+<a href="{% url 'program_list' %}">Back to Program List</a>
+{% endblock %}

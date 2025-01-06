@@ -1,7 +1,14 @@
-
-{% extends 'app/base.html'%}
+{% extends 'app/base.html' %}
 {% load static %}
+
+{% block title %}Home{% endblock %}
+
 {% block content %}
+<h1>Welcome to the Gym Tracker</h1>
+<p>Manage your users, programs, and workouts with ease!</p>
+<a href="{% url 'user_list' %}">View Users</a> | 
+<a href="{% url 'program_list' %}">View Programs</a>
+
 
 <h1>Hello World</h1>
 <img class = "mylogo" src="{% static 'images/logo.png' %}">

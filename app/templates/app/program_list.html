@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Program List{% endblock %}
+
+{% block content %}
+<h2>Workout Programs</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Program Name</th>
+            <th>Goal</th>
+            <th>Duration (weeks)</th>
+            <th>User</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for program in programs %}
+        <tr>
+            <td><a href = "{% url 'program_detail' program.pk %}">{{ program.program_name }}</a></td>
+            <td>{{ program.goal }}</td>
+            <td>{{ program.duration_weeks }}</td>
+            <td>{{ program.user.username }}</td>
+            <td>
+                <a href="{% url 'program_update' program.pk %}">Edit</a> | 
+                <a href="{% url 'program_delete' program.pk %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'program_add' %}">Add New Program</a>
+{% endblock %}

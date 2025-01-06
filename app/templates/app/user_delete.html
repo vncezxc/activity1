@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+
+{% block title %}User Delete{% endblock %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
+<a href="{% url 'user_list' %}">Back to User List</a>
+{% endblock %}
