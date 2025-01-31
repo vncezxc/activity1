@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import  HomePageView, UserListView, UserCreateView, UserUpdateView, UserDeleteView, UserDetailView
 from .views import program_list, program_add, program_detail, ProgramUpdateView, ProgramDeleteView, ProgramDetailView
+from app import views
 
 
 urlpatterns = [
@@ -17,5 +18,15 @@ urlpatterns = [
     path('program/<int:pk>', ProgramDetailView.as_view() , name='program_detail'),
     path('program/<int:pk>/edit/', ProgramUpdateView.as_view() , name='program_update'),
     path('program/<int:pk>/delete/', ProgramDeleteView.as_view() , name='program_delete'),
+    path('',views.Home,name="Home"),
+    path('signup',views.signup,name="signup"),
+    path('login',views.handlelogin,name="handlelogin"),
+    path('logout',views.handleLogout,name="handleLogout"),
+    path('contact',views.contact,name="contact"),
+    path('join',views.enroll,name="enroll"),
+    path('profile',views.profile,name="profile"),
+    path('gallery',views.gallery,name="gallery"),
+    path('attendance',views.attendance,name="attendance"),
+
 ]
 

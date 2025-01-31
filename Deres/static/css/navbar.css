@@ -1,0 +1,143 @@
+/* Ensure the navbar stays fixed at the top */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #222; /* Dark background */
+    padding: 15px 20px;
+    z-index: 1000; /* Keeps it above everything */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Add spacing so the content doesn't get hidden behind the navbar */
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: 80px; /* Adjust based on navbar height */
+}
+
+/* Navbar Links */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 1.2em;
+}
+
+.navbar a:hover {
+    color: #ff6600;
+}
+
+/* Optional: Make Navbar Change on Scroll */
+.navbar.scrolled {
+    background-color: rgba(34, 34, 34, 0.9); /* Slightly transparent on scroll */
+    transition: background 0.3s ease-in-out;
+}
+
+
+/* Navbar container */
+nav {
+    display: flex;
+    align-items: center;  /* Vertically center the items */
+    justify-content: space-between;  /* Space between logo and links */
+    background-color: #333;  /* Dark background for the navbar */
+    padding: 15px 20px;  /* Space around the navbar */
+    border-radius: 4px;  /* Rounded corners */
+}
+
+/* Navbar logo and brand container */
+.logo-container {
+    display: flex;
+    align-items: center;  /* Center logo and app name vertically */
+}
+
+/* Make the logo and app name clickable */
+.navbar-link {
+    text-decoration: none;  /* Remove underline from the link */
+    display: flex;
+    align-items: center;  /* Align logo and name horizontally */
+}
+
+/* Navbar logo */
+.navbar-logo {
+    max-width: 50px;  /* Adjust the logo size */
+    height: auto;  /* Maintain aspect ratio */
+    margin-right: 10px;  /* Space between the logo and the app name */
+}
+
+/* App name next to the logo */
+.navbar-brand {
+    font-size: 1.8em;  /* Larger font size for the app name */
+    color: #fff;  /* White color for the app name */
+    font-weight: bold;  /* Make it bold */
+}
+
+/* Navbar list */
+nav ul {
+    list-style-type: none;  /* Remove default list bullets */
+    padding: 0;
+    margin: 0;
+    text-align: center;  /* Center the navigation items */
+    flex: 1;  /* Allow the navbar items to take up the remaining space */
+}
+
+/* Navbar list items */
+nav ul li {
+    display: inline-block;  /* Arrange items horizontally */
+    margin-right: 20px;  /* Space between items */
+}
+
+/* Navbar links */
+nav ul li a {
+    text-decoration: none;  /* Remove underline */
+    color: white;  /* White text color */
+    font-size: 16px;  /* Font size */
+    font-weight: bold;  /* Make the text bold */
+    padding: 10px 15px;  /* Add some padding around the text */
+    border-radius: 4px;  /* Rounded corners for links */
+    display: inline-block;  /* Makes the link a block to add padding */
+    transition: background-color 0.3s ease, color 0.3s ease;  /* Smooth transition for hover effect */
+}
+
+/* Navbar links - hover effect */
+nav ul li a:hover {
+    background-color: #4CAF50;  /* Green background when hovered */
+    color: #fff;  /* White text when hovered */
+}
+
+/* Navbar active link */
+nav ul li a.active {
+    background-color: #45a049;  /* Slightly darker green for active links */
+}
+
+/* Responsive Navbar - Mobile view */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;  /* Stack logo and links vertically on smaller screens */
+        text-align: left;  /* Align links to the left for smaller screens */
+    }
+
+    nav ul {
+        width: 100%;  /* Ensure the nav links take up full width on mobile */
+    }
+
+    nav ul li {
+        display: block;  /* Stack items vertically */
+        margin-bottom: 10px;  /* Add some spacing between stacked items */
+    }
+
+    .navbar-logo {
+        max-width: 120px;  /* Slightly reduce the logo size on mobile */
+    }
+
+    .navbar-brand {
+        font-size: 1.6em;  /* Adjust app name size on mobile */
+        margin-left: 10px;  /* Add margin to the left for spacing */
+    }
+}
+
+

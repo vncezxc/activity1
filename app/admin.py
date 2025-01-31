@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import User, Program, Split, Exercise, SplitExercise, Progress
+from app.models import Contact,MembershipPlan,Enrollment,Trainer,Gallery,Attendance
 
 
 @admin.register(User)
@@ -44,3 +45,11 @@ class ProgressAdmin(admin.ModelAdmin):
     list_display = ('user', 'date', 'weight', 'body_fat_percentage', 'muscle_mass_percentage')
     search_fields = ('user__username',)
     list_filter = ('date',)
+
+
+admin.site.register(Contact)
+admin.site.register(MembershipPlan)
+admin.site.register(Enrollment)
+admin.site.register(Trainer)
+admin.site.register(Gallery)
+admin.site.register(Attendance)

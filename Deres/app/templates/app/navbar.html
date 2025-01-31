@@ -1,0 +1,23 @@
+{% load static %}
+
+<header>
+    <nav>
+
+        <div class="logo-container">
+           
+            <a href="{% url 'home' %}" class="navbar-link">
+                <img class="navbar-logo" src="{% static 'images/logo.png' %}" alt="Gym Tracker Logo">
+                <span class="navbar-brand">WorkoutSplitPro</span>
+            </a>
+        </div>
+        <ul>
+         <li><a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+            <li><a href="{% url 'split_list' %}" class="{% if request.path == '/splits/' %}active{% endif %}">Splits</a></li>
+            <li><a href="{% url 'program_list' %}" class="{% if request.path == '/programs/' %}active{% endif %}">Programs</a></li>
+            <li><a href="{% url 'exercise_list' %}" class="{% if request.path == '/exercises/' %}active{% endif %}">Exercises</a></li>
+            <li><a href="{% url 'split_exercise_list' %}" class="{% if request.path == '/split-exercises/' %}active{% endif %}">Split Exercises</a></li>
+            <li><a href="{% url 'login' %}" class="{% if request.path == '/login/' %}active{% endif %}">LogIn</a></li>
+            <li><a href="{% url 'signup' %}" class="{% if request.path == '/signup/' %}active{% endif %}">SignUp</a></li>
+        </ul>
+    </nav>
+</header>

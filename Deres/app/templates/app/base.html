@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>   
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+   
+ 
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+
+    <title>VinceFitness</title>
+    
+</head>
+<body>
+    {% include 'app/navbar.html' %}
+    <div class="container">
+   
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}</p>
+        <form method = "post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        {% else %}
+        <p>You are not Logged in</p>
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    {% block content %}
+    {% endblock content %}
+     <script src="{% static 'js/base.js' %}"></script>
+</body>
+</html>

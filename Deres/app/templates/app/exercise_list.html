@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Exercise List{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Exercise List</h2>
+    <p>Total Exercises: {{ exercise_count }}</p>
+
+    <h3>Exercises by Muscle Group</h3>
+ 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Muscle Group</th>
+                <th>Equipment</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for exercise in exercises %}
+            <tr>
+                <td><a href="{% url 'exercise_detail' exercise.id %}">{{ exercise.exercise_name }}</a></td>
+                <td>{{ exercise.muscle_group }}</td>
+                <td>{{ exercise.equipment_needed }}</td>
+                <td>{{ exercise.exercise_type }}</td>
+                <td>
+                    <a href="{% url 'exercise_update' exercise.id %}" class="btn btn-edit">Edit</a>
+                    <a href="{% url 'exercise_delete' exercise.id %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'exercise_create' %}" class="btn btn-add">Add New Exercise</a>
+</div>
+{% endblock %}

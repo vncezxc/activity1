@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<h2>Split List</h2>
+<p>Total Splits: {{ total_splits }}</p>
+<p>Average Splits per Program: {{ avg_splits_per_program|floatformat:1 }}</p>
+
+<a href="{% url 'split_create' %}" class="btn btn-primary mb-3">Add New Split</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Split Name</th>
+            <th>Day</th>
+            <th>Program</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for split in splits %}
+        <tr>
+            <td><a href="{% url 'split_detail' split.id %}">{{ split.split_name }}</a></td>
+            <td>{{ split.day }}</td>
+            <td>{{ split.program.program_name }}</td>
+            <td>
+                <a href="{% url 'split_update' split.id %}" class="btn ">Edit</a>
+                <a href="{% url 'split_delete' split.id %}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

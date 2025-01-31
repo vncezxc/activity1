@@ -1,0 +1,51 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Home - WorkoutSplitPro{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section (Full-Screen Cover Image) -->
+<div class="hero">
+    <div class="hero-overlay">
+        <h1>Welcome to <span class="highlight">WorkoutSplitPro</span></h1>
+        <p>Your journey to fitness starts here.</p>
+        <a href="{% url 'program_list' %}" class="btn btn-primary">Get Started</a>
+    </div>
+</div>
+
+<!-- About Section -->
+<section class="about">
+    <div class="container">
+        <h2>About Us</h2>
+        <p>WorkoutSplitPro is your ultimate workout companion, helping you track exercises, create custom programs, and reach your fitness goals.</p>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="services">
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service">
+                <h3>Workout Tracking</h3>
+                <p>Monitor your progress and stay on top of your fitness routine.</p>
+            </div>
+            <div class="service">
+                <h3>Custom Programs</h3>
+                <p>Design personalized workout plans that fit your goals.</p>
+            </div>
+            <div class="service">
+                <h3>Performance Analysis</h3>
+                <p>Get insights into your workouts and optimize your training.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 WorkoutSplitPro | All Rights Reserved</p>
+</footer>
+
+{% endblock %}

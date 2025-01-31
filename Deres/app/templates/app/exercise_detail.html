@@ -1,0 +1,12 @@
+{% extends 'app/base.html'%}
+{% load static %}
+{% block content %}
+
+<h2>{{ exercise.name }}</h2>
+<p><strong>Muscle Group:</strong> {{ exercise.muscle_group }}</p>
+<p><strong>Equipment Needed:</strong> {{ exercise.equipment_needed }}</p>
+<p><strong>Type:</strong> {{ exercise.exercise_type }}</p>
+
+<a href="{% url 'exercise_update' exercise.id %}">Edit</a>
+<a href="{% url 'exercise_list' %}">Back to List</a>
+{% endblock %}

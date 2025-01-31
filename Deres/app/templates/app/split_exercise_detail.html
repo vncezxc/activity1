@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<h2>{{ split_exercise.exercise.name }} in {{ split_exercise.split.split_name }}</h2>
+<p><strong>Order:</strong> {{ split_exercise.order }}</p>
+<p><strong>Sets:</strong> {{ split_exercise.sets }}</p>
+<p><strong>Reps:</strong> {{ split_exercise.reps }}</p>
+<p><strong>Rest Time:</strong> {{ split_exercise.rest_time }} sec</p>
+
+<a href="{% url 'split_exercise_update' split_exercise.id %}" class="btn btn-warning">Edit</a>
+<a href="{% url 'split_exercise_list' %}" class="btn btn-secondary">Back to List</a>
+{% endblock %}

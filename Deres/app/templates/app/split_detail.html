@@ -1,0 +1,10 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<h2>{{ split.split_name }} - Day {{ split.day }}</h2>
+<p><strong>Program:</strong> {{ split.program.program_name }}</p>
+
+<a href="{% url 'split_list' %}" class="btn btn-secondary">Back to List</a>
+<a href="{% url 'split_update' split.id %}" class="btn btn-warning">Edit</a>
+<a href="{% url 'split_delete' split.id %}" class="btn btn-danger">Delete</a>
+{% endblock %}

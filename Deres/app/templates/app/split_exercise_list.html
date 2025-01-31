@@ -1,0 +1,40 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<h2>Split Exercise List</h2>
+<p>Total Split Exercises: {{ total_split_exercises }}</p>
+<p>Average Sets: {{ avg_sets|floatformat:1 }}</p>
+<p>Average Reps: {{ avg_reps|floatformat:1 }}</p>
+<p>Average Rest Time: {{ avg_rest_time|floatformat:1 }} seconds</p>
+
+<a href="{% url 'split_exercise_create' %}" class="btn btn-primary">Add New Split Exercise</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Split</th>
+            <th>Exercise</th>
+            <th>Order</th>
+            <th>Sets</th>
+            <th>Reps</th>
+            <th>Rest Time (sec)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for split_exercise in split_exercises %}
+        <tr>
+            <td><a href="{% url 'split_exercise_detail' split_exercise.id %}">{{ split_exercise.split.split_name }}</a></td>
+            <td>{{ split_exercise.exercise }}</td>
+            <td>{{ split_exercise.order }}</td>
+            <td>{{ split_exercise.sets }}</td>
+            <td>{{ split_exercise.reps }}</td>
+            <td>{{ split_exercise.rest_time }}</td>
+            <td>
+                <a href="{% url 'split_exercise_update' split_exercise.id %}" class="btn ">Edit</a>
+                <a href="{% url 'split_exercise_delete' split_exercise.id %}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

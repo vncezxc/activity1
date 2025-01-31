@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% if program %}
+        <h2>{{ program.program_name }}</h2>
+        <p><strong>User:</strong> {{ program.user.username }}</p>
+        <p><strong>Goal:</strong> {{ program.goal }}</p>
+        <p><strong>Duration:</strong> {{ program.duration_weeks }} weeks</p>
+        <a href="{% url 'program_list' %}" class="btn btn-secondary">Back to List</a>
+    {% else %}
+        <p>No program found.</p>
+    {% endif %}
+{% endblock %}
